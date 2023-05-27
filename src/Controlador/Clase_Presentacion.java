@@ -7,41 +7,38 @@ package Controlador;
  */
 public class Clase_Presentacion {
 
-    int Id_presentacion;
-   String nomb_presentacion;
-   String detalle;
-   
-   public Clase_Presentacion(int Id_presentacion, String nomb_presentacion, String detalle) {
-        this.Id_presentacion = Id_presentacion;
-        this.nomb_presentacion = nomb_presentacion;
-        this.detalle = detalle;
+    int Id_Presentacion;
+   String Nombre_Presentacion;
+   String Detalle;
+
+    public Clase_Presentacion(int Id_Presentacion, String Nombre_Presentacion, String Detalle) {
+        this.Id_Presentacion = Id_Presentacion;
+        this.Nombre_Presentacion = Nombre_Presentacion;
+        this.Detalle = Detalle;
     }
 
-    public int getId_presentacion() {
-        return Id_presentacion;
+    public int getId_Presentacion() {
+        return Id_Presentacion;
     }
 
-    public void setId_presentacion(int Id_presentacion) {
-        this.Id_presentacion = Id_presentacion;
+    public void setId_Presentacion(int Id_Presentacion) {
+        this.Id_Presentacion = Id_Presentacion;
     }
 
-    public String getNomb_presentacion() {
-        return nomb_presentacion;
+    public String getNombre_Presentacion() {
+        return Nombre_Presentacion;
     }
 
-    public void setNomb_presentacion(String nomb_presentacion) {
-        this.nomb_presentacion = nomb_presentacion;
+    public void setNombre_Presentacion(String Nombre_Presentacion) {
+        this.Nombre_Presentacion = Nombre_Presentacion;
     }
 
     public String getDetalle() {
-        return detalle;
+        return Detalle;
     }
 
-    public void setDetalle(String detalle) {
-        this.detalle = detalle;
+    public void setDetalle(String Detalle) {
+        this.Detalle = Detalle;
     }
-    
-    
-    
-   
+  
 }

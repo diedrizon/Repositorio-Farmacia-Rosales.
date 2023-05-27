@@ -1,7 +1,10 @@
 
 package Modelo;
 
+import Vistas.InternalFrame_Cliente;
 import Vistas.JInternalFrame_Producto;
+import Controlador.CRUD_Cliente;
+import Controlador.Clase_Cliente;
 
 /**
  *
@@ -11,6 +14,7 @@ public class MDI extends javax.swing.JFrame {
 
 
     public MDI() {
+       this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
     }
 
@@ -20,7 +24,7 @@ public class MDI extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
+        jButton_Formulario_Cliente = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -39,28 +43,28 @@ public class MDI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Formulario_Cliente.setText("jButton1");
+        jButton_Formulario_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_Formulario_Cliente(evt);
             }
         });
-        desktopPane.add(jButton1);
-        jButton1.setBounds(110, 20, 73, 25);
+        desktopPane.add(jButton_Formulario_Cliente);
+        jButton_Formulario_Cliente.setBounds(110, 20, 73, 25);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
         desktopPane.add(jDesktopPane1);
-        jDesktopPane1.setBounds(0, 0, 400, 280);
+        jDesktopPane1.setBounds(0, 0, 920, 480);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -129,11 +133,11 @@ public class MDI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
         );
 
         pack();
@@ -143,14 +147,13 @@ public class MDI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JInternalFrame_Producto est = new JInternalFrame_Producto();
-        int x=(jDesktopPane1.getWidth()/2)-est.getWidth()/2;
-        int y=(jDesktopPane1.getHeight()/2)-est.getHeight()/2;
-        est.setLocation(x, y);
-        jDesktopPane1.add(est);
-        est.setVisible(true);        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton_Formulario_Cliente(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Formulario_Cliente
+        InternalFrame_Cliente est = new InternalFrame_Cliente();
+est.setBounds(0, 0, jDesktopPane1.getWidth(), jDesktopPane1.getHeight());
+jDesktopPane1.add(est);
+est.setVisible(true);
+
+    }//GEN-LAST:event_jButton_Formulario_Cliente
 
     /**
      * @param args the command line arguments
@@ -175,7 +178,7 @@ public class MDI extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_Formulario_Cliente;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;

@@ -23,23 +23,23 @@ public class CRUD_Cliente {
     public DefaultTableModel mostrarDatos() {
         ResultSet rs;
         DefaultTableModel modelo;
-        String[] titulos = {"Id_cliente", "nombre_1", "nombre_2", "apellido_1", "apellido_2", "num_celu","direccion"};
+        String[] titulos = {"Id_Cliente", "Nombre_1", "Nombre_2", "Apellido_1", "Apellido_2", "Numero_Celular","Direccion"};
         String[] registro = new String[7];
 
         modelo = new DefaultTableModel(null, titulos);
 
         try {
-            CallableStatement cbstc = cn.prepareCall("{call MostrarClientes}");
+            CallableStatement cbstc = cn.prepareCall("{call ConsultarDatosCliente}");
             rs = cbstc.executeQuery();
 
             while (rs.next()) {
-                registro[0] = rs.getString("Id_cliente");
-                registro[1] = rs.getString("nombre_1");
-                registro[2] = rs.getString("nombre_2");
-                registro[3] = rs.getString("apellido_1");
-                registro[4] = rs.getString("apellido_2");
-                registro[5] = rs.getString("num_celu");
-                registro[5] = rs.getString("direccion");
+                registro[0] = rs.getString("Id_Cliente");
+                registro[1] = rs.getString("Nombre_1");
+                registro[2] = rs.getString("Nombre_2");
+                registro[3] = rs.getString("Apellido_1");
+                registro[4] = rs.getString("Apellido_2");
+                registro[5] = rs.getString("Numero_Celular");
+                registro[5] = rs.getString("Direccion");
 
                 modelo.addRow(registro);
             }
@@ -55,7 +55,7 @@ public class CRUD_Cliente {
         ResultSet rs;
         DefaultTableModel modelo;
 
-        String[] titulos = {"Id_cliente", "nombre_1", "nombre_2", "apellido_1", "apellido_2", "num_celu","direccion"};
+        String[] titulos = {"Id_Cliente", "Nombre_1", "Nombre_2", "Apellido_1", "Apellido_2", "Numero_Celular","Direccion"};
         String[] registro = new String[6];
 
         modelo = new DefaultTableModel(null, titulos);
@@ -66,13 +66,13 @@ public class CRUD_Cliente {
             rs = call.executeQuery();
 
             while (rs.next()) {
-                registro[0] = rs.getString("Id_cliente");
-                registro[1] = rs.getString("nombre_1");
-                registro[2] = rs.getString("nombre_2");
-                registro[3] = rs.getString("apellido_1");
-                registro[4] = rs.getString("apellido_2");
-                registro[5] = rs.getString("num_celu");
-                registro[5] = rs.getString("direccion");
+                registro[0] = rs.getString("Id_Cliente");
+                registro[1] = rs.getString("Nombre_1");
+                registro[2] = rs.getString("Nombre_2");
+                registro[3] = rs.getString("Apellido_1");
+                registro[4] = rs.getString("Apellido_2");
+                registro[5] = rs.getString("Numero_Celular");
+                registro[5] = rs.getString("Direccion");
 
                 modelo.addRow(registro);
             }
@@ -109,7 +109,7 @@ public class CRUD_Cliente {
             cbst.setString(3, cl.getNombre_2());
             cbst.setString(4, cl.getApellido_1());
             cbst.setString(5, cl.getApellido_2());
-            cbst.setString(5, cl.getNum_celu());
+            cbst.setString(5, cl.getNumero_Celular());
             cbst.setString(6, cl.getDireccion());
             cbst.executeUpdate();
 
@@ -120,12 +120,12 @@ public class CRUD_Cliente {
       
        public void actualizar(Clase_Cliente cl) {
         try {
-            CallableStatement cbst = cn.prepareCall("{call ModificarCliente(?,?,?,?,?,?)}");
+            CallableStatement cbst = cn.prepareCall("{call ActualizarCliente(?,?,?,?,?,?)}");
             cbst.setString(1, cl.getNombre_1());
             cbst.setString(2, cl.getNombre_2());
             cbst.setString(3, cl.getApellido_1());
             cbst.setString(4, cl.getApellido_2());
-            cbst.setString(5, cl.getNum_celu());
+            cbst.setString(5, cl.getNumero_Celular());
             cbst.setString(6, cl.getDireccion());
             cbst.executeUpdate();
 
@@ -135,15 +135,15 @@ public class CRUD_Cliente {
     }
        
        
-    public void eliminar(String Id_cliente) {
-        try {
-            CallableStatement cbst = cn.prepareCall("{call EliminarCliente(?)}");
-            cbst.setString(1, Id_cliente);
-            cbst.executeUpdate();
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+   public void eliminar(int Id_Cliente) {
+    try {
+        CallableStatement cbst = cn.prepareCall("{call EliminarCliente(?)}");
+        cbst.setInt(1, Id_Cliente);
+        cbst.executeUpdate();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
     }
+}
+
       
 }

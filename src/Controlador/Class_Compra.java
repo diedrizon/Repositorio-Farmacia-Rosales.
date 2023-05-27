@@ -6,37 +6,38 @@ import java.sql.Date;
 /** @author diedr
  */
 public class Class_Compra {
-    int Id_compra;
-    java.sql.Date fecha_compra;
-    int Id_proveed;
+    int Id_Compra;
+    java.sql.Date Fecha_Compra;
+    int Id_Proveedor;
 
-    public Class_Compra(int Id_compra, Date fecha_compra, int Id_proveed) {
-        this.Id_compra = Id_compra;
-        this.fecha_compra = fecha_compra;
-        this.Id_proveed = Id_proveed;
+    public Class_Compra(int Id_Compra, Date Fecha_Compra, int Id_Proveedor) {
+        this.Id_Compra = Id_Compra;
+        this.Fecha_Compra = Fecha_Compra;
+        this.Id_Proveedor = Id_Proveedor;
     }
 
-    public int getId_compra() {
-        return Id_compra;
+    public int getId_Compra() {
+        return Id_Compra;
     }
 
-    public void setId_compra(int Id_compra) {
-        this.Id_compra = Id_compra;
+    public void setId_Compra(int Id_Compra) {
+        this.Id_Compra = Id_Compra;
     }
 
-    public Date getFecha_compra() {
-        return fecha_compra;
+    public Date getFecha_Compra() {
+        return Fecha_Compra;
     }
 
-    public void setFecha_compra(Date fecha_compra) {
-        this.fecha_compra = fecha_compra;
+    public void setFecha_Compra(Date Fecha_Compra) {
+        this.Fecha_Compra = Fecha_Compra;
     }
 
-    public int getId_proveed() {
-        return Id_proveed;
+    public int getId_Proveedor() {
+        return Id_Proveedor;
     }
 
-    public void setId_proveed(int Id_proveed) {
-        this.Id_proveed = Id_proveed;
+    public void setId_Proveedor(int Id_Proveedor) {
+        this.Id_Proveedor = Id_Proveedor;
     }
+
 }

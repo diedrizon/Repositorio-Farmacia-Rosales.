@@ -6,33 +6,30 @@ package Controlador;
  * @author diedr
  */
 public class Clase_Laboratorio {
-    
-     int Id_labor;
-   String nombre;
-   
-   
-    public Clase_Laboratorio(int Id_labor, String nombre) {
-        this.Id_labor = Id_labor;
-        this.nombre = nombre;
-    }
-    
+ int Id_Laboratorio;
+   String Nombre;
 
-    public int getId_labor() {
-        return Id_labor;
+    public Clase_Laboratorio(int Id_Laboratorio, String Nombre) {
+        this.Id_Laboratorio = Id_Laboratorio;
+        this.Nombre = Nombre;
     }
 
-    public void setId_labor(int Id_labor) {
-        this.Id_labor = Id_labor;
+    public int getId_Laboratorio() {
+        return Id_Laboratorio;
+    }
+
+    public void setId_Laboratorio(int Id_Laboratorio) {
+        this.Id_Laboratorio = Id_Laboratorio;
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
-    
+   
    
 }
 

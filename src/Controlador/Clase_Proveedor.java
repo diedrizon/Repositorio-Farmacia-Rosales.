@@ -6,97 +6,88 @@ package Controlador;
  * @author diedr
  */
 public class Clase_Proveedor {
-    int Id_proveed;
-    String nombre_1;
-    String  nombre_2;
-    String apellido_1;
-    String apellido_2;
-    String gmil;
-    String num_celu;
-    String direccion;
-    byte [] imagen_proveedor;
+    int Id_Proveedor;
+    String Nombre_1;
+    String  Nombre_2;
+    String Apellido_1;
+    String Apellido_2;
+    String Gmail;
+    String Numero_Celular;
+    String Direccion;
 
-    public Clase_Proveedor(int Id_proveed, String nombre_1, String nombre_2, String apellido_1, String apellido_2, String gmil, String num_celu, String direccion, byte[] imagen_proveedor) {
-        this.Id_proveed = Id_proveed;
-        this.nombre_1 = nombre_1;
-        this.nombre_2 = nombre_2;
-        this.apellido_1 = apellido_1;
-        this.apellido_2 = apellido_2;
-        this.gmil = gmil;
-        this.num_celu = num_celu;
-        this.direccion = direccion;
-        this.imagen_proveedor = imagen_proveedor;
+    public Clase_Proveedor(int Id_Proveedor, String Nombre_1, String Nombre_2, String Apellido_1, String Apellido_2, String Gmail, String Numero_Celular, String Direccion) {
+        this.Id_Proveedor = Id_Proveedor;
+        this.Nombre_1 = Nombre_1;
+        this.Nombre_2 = Nombre_2;
+        this.Apellido_1 = Apellido_1;
+        this.Apellido_2 = Apellido_2;
+        this.Gmail = Gmail;
+        this.Numero_Celular = Numero_Celular;
+        this.Direccion = Direccion;
     }
 
-    public int getId_proveed() {
-        return Id_proveed;
+    public int getId_Proveedor() {
+        return Id_Proveedor;
     }
 
-    public void setId_proveed(int Id_proveed) {
-        this.Id_proveed = Id_proveed;
+    public void setId_Proveedor(int Id_Proveedor) {
+        this.Id_Proveedor = Id_Proveedor;
     }
 
     public String getNombre_1() {
-        return nombre_1;
+        return Nombre_1;
     }
 
-    public void setNombre_1(String nombre_1) {
-        this.nombre_1 = nombre_1;
+    public void setNombre_1(String Nombre_1) {
+        this.Nombre_1 = Nombre_1;
     }
 
     public String getNombre_2() {
-        return nombre_2;
+        return Nombre_2;
     }
 
-    public void setNombre_2(String nombre_2) {
-        this.nombre_2 = nombre_2;
+    public void setNombre_2(String Nombre_2) {
+        this.Nombre_2 = Nombre_2;
     }
 
     public String getApellido_1() {
-        return apellido_1;
+        return Apellido_1;
     }
 
-    public void setApellido_1(String apellido_1) {
-        this.apellido_1 = apellido_1;
+    public void setApellido_1(String Apellido_1) {
+        this.Apellido_1 = Apellido_1;
     }
 
     public String getApellido_2() {
-        return apellido_2;
+        return Apellido_2;
     }
 
-    public void setApellido_2(String apellido_2) {
-        this.apellido_2 = apellido_2;
+    public void setApellido_2(String Apellido_2) {
+        this.Apellido_2 = Apellido_2;
     }
 
-    public String getGmil() {
-        return gmil;
+    public String getGmail() {
+        return Gmail;
     }
 
-    public void setGmil(String gmil) {
-        this.gmil = gmil;
+    public void setGmail(String Gmail) {
+        this.Gmail = Gmail;
     }
 
-    public String getNum_celu() {
-        return num_celu;
+    public String getNumero_Celular() {
+        return Numero_Celular;
     }
 
-    public void setNum_celu(String num_celu) {
-        this.num_celu = num_celu;
+    public void setNumero_Celular(String Numero_Celular) {
+        this.Numero_Celular = Numero_Celular;
     }
 
     public String getDireccion() {
-        return direccion;
+        return Direccion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
     }
 
-    public byte[] getImagen_proveedor() {
-        return imagen_proveedor;
-    }
-
-    public void setImagen_proveedor(byte[] imagen_proveedor) {
-        this.imagen_proveedor = imagen_proveedor;
-    }
 }

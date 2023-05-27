@@ -4,10 +4,17 @@ package Vistas;
 import Controlador.CRUD_Cliente;
 import Controlador.Clase_Cliente;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.CallableStatement;
+import java.sql.SQLException;
+import Controlador_Conexion_DB.Conexion;
+
+
 
 /**
  *
@@ -21,27 +28,27 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
     }
 
     public void limpiar() {
-        jTextField_Nombre_1.setText("");
-        jTextField_Nombre_2.setText("");
-        jTextField_Apellido_1.setText("");
+        JtextFiel_Nombre_1.setText("");
+        JtextFiel_Nombre_2.setText("");
+        jTextFiel_Apellido_1.setText("");
         jTextField_Apellido_2.setText("");
-        jTextField_Telefono.setText("");
-        jTextArea_DIrrecion.setText("");
+        jTextField_telefono.setText("");
+        jTextArea_Dirrecion.setText("");
 
         
     }
     
     public void guardarCliente() {
     CRUD_Cliente cc = new CRUD_Cliente();
-    int idCliente = Integer.parseInt(jTextField_Id_Cliete.getText());
-    String nombre1 = jTextField_Nombre_1.getText();
-    String nombre2 = jTextField_Nombre_2.getText();
-    String apellido1 = jTextField_Apellido_1.getText();
-    String apellido2 = jTextField_Apellido_2.getText();
-    String telefono = jTextField_Telefono.getText();
-    String direccion = jTextArea_DIrrecion.getText();
+    int Id_Cliente = Integer.parseInt(jTextField_Id_Ciente.getText());
+    String Nombre_1 = JtextFiel_Nombre_1.getText();
+    String Nombre_2 = JtextFiel_Nombre_2.getText();
+    String Apellido_1 = jTextFiel_Apellido_1.getText();
+    String Apellido_2 = jTextField_Apellido_2.getText();
+    String Telefono = jTextField_telefono.getText();
+    String Direccion = jTextArea_Dirrecion.getText();
 
-    Clase_Cliente cl = new Clase_Cliente(idCliente, nombre1, nombre2, apellido1, apellido2, telefono, direccion);
+    Clase_Cliente cl = new Clase_Cliente(Id_Cliente, Nombre_1, Nombre_2, Apellido_1, Apellido_2, Telefono, Direccion);
     cc.Guardar(cl);
 }
     
@@ -55,6 +62,9 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+       
+
+
     }
 
     
@@ -73,14 +83,14 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea_DIrrecion = new javax.swing.JTextArea();
+        jTextArea_Dirrecion = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        JtextFiel_Nombre_2 = new javax.swing.JTextField();
+        JtextFiel_Nombre_1 = new javax.swing.JTextField();
+        jTextField_Apellido_2 = new javax.swing.JTextField();
+        jTextFiel_Apellido_1 = new javax.swing.JTextField();
+        jTextField_telefono = new javax.swing.JTextField();
+        jButton_Buscar_Cliente = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_Cliente = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -90,12 +100,12 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
         jButton12 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jTextField_Buscar = new javax.swing.JTextField();
+        jTextField_Id_Ciente = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButton_Editar = new javax.swing.JButton();
+        jButton_Actualizar = new javax.swing.JButton();
+        jButton_Borrar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -133,34 +143,59 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("Dirección");
 
-        jTextArea_DIrrecion.setColumns(20);
-        jTextArea_DIrrecion.setRows(5);
-        jTextArea_DIrrecion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextArea_DIrrecion.addAncestorListener(new javax.swing.event.AncestorListener() {
+        jTextArea_Dirrecion.setColumns(20);
+        jTextArea_Dirrecion.setRows(5);
+        jTextArea_Dirrecion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextArea_Dirrecion.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jTextArea_DIrrecion(evt);
+                jTextArea_Dirrecion(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        jScrollPane1.setViewportView(jTextArea_DIrrecion);
+        jScrollPane1.setViewportView(jTextArea_Dirrecion);
 
-        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        JtextFiel_Nombre_2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JtextFiel_Nombre_2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        JtextFiel_Nombre_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JtextFiel_Nombre_2(evt);
+            }
+        });
 
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        JtextFiel_Nombre_1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JtextFiel_Nombre_1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        JtextFiel_Nombre_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JtextFiel_nombre1(evt);
+            }
+        });
 
-        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextField_Apellido_2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField_Apellido_2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextField_Apellido_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_Apellido_2(evt);
+            }
+        });
 
-        jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextFiel_Apellido_1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFiel_Apellido_1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextFiel_Apellido_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFiel_Apellido_1(evt);
+            }
+        });
 
-        jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextField_telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField_telefono.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextField_telefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_telefonoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -171,8 +206,8 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JtextFiel_Nombre_1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
@@ -182,15 +217,15 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtextFiel_Nombre_2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFiel_Apellido_1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_Apellido_2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(61, 61, 61)))
                 .addContainerGap())
@@ -208,10 +243,10 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JtextFiel_Nombre_2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFiel_Apellido_1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Apellido_2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JtextFiel_Nombre_1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,20 +256,20 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 710, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Buscar.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Buscar_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Buscar.png"))); // NOI18N
+        jButton_Buscar_Cliente.setBorder(null);
+        jButton_Buscar_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_Buscar_Cliente(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, 20));
+        jPanel1.add(jButton_Buscar_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, 20));
 
         jTable_Cliente.setForeground(new java.awt.Color(0, 153, 153));
         jTable_Cliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -365,24 +400,29 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 40));
 
-        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField12.setText("Buscar");
-        jTextField12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jTextField12.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_Buscar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextField_Buscar.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_Buscar.setText("Buscar");
+        jTextField_Buscar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextField_Buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField_Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                jTextField_Buscar(evt);
             }
         });
-        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 160, -1));
+        jPanel1.add(jTextField_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 160, -1));
 
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jTextField7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 130, 20));
+        jTextField_Id_Ciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField_Id_Ciente.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextField_Id_Ciente.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField_Id_Ciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_Id_Ciente(evt);
+            }
+        });
+        jPanel1.add(jTextField_Id_Ciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 130, 20));
 
         jButton6.setBackground(new java.awt.Color(0, 153, 153));
         jButton6.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -397,49 +437,54 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, 93, -1));
 
-        jButton8.setBackground(new java.awt.Color(0, 153, 153));
-        jButton8.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Editar Usuario.png"))); // NOI18N
-        jButton8.setText("Editar");
-        jButton8.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Editar.setBackground(new java.awt.Color(0, 153, 153));
+        jButton_Editar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButton_Editar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Editar Usuario.png"))); // NOI18N
+        jButton_Editar.setText("Editar");
+        jButton_Editar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jButton_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButton_Editar(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 93, -1));
+        jPanel1.add(jButton_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 93, -1));
 
-        jButton9.setBackground(new java.awt.Color(0, 153, 153));
-        jButton9.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Actualizar uduario.png"))); // NOI18N
-        jButton9.setText("Actualizar");
-        jButton9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, -1, -1));
+        jButton_Actualizar.setBackground(new java.awt.Color(0, 153, 153));
+        jButton_Actualizar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButton_Actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Actualizar uduario.png"))); // NOI18N
+        jButton_Actualizar.setText("Actualizar");
+        jButton_Actualizar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Actualizar(evt);
+            }
+        });
+        jPanel1.add(jButton_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, -1, -1));
 
-        jButton4.setBackground(new java.awt.Color(0, 153, 153));
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Eliminar usuario.png"))); // NOI18N
-        jButton4.setText("Eliminar");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 100, 40));
+        jButton_Borrar.setBackground(new java.awt.Color(0, 153, 153));
+        jButton_Borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButton_Borrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Eliminar usuario.png"))); // NOI18N
+        jButton_Borrar.setText("Eliminar");
+        jButton_Borrar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jButton_Borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Borrar(evt);
+            }
+        });
+        jPanel1.add(jButton_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(25, 25, 25))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
         );
 
         pack();
@@ -457,60 +502,82 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_jTable_ClienteMouseExited
 
-    private void jTextArea_DIrrecion(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTextArea_DIrrecion
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextArea_DIrrecion
+    private void jTextArea_Dirrecion(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTextArea_Dirrecion
+        
+    }//GEN-LAST:event_jTextArea_Dirrecion
 
     private void Guardar_Cliente(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_Cliente
         CRUD_Cliente cl = new CRUD_Cliente();
         try {
-            if ((jTextField_Nombre_1.getText().equals(""))
-                    || (jTextField_Nombre_2.getText().equals(""))
-                    || (jTextField_Apellido_1.getText().equals(""))
+            if ((JtextFiel_Nombre_1.getText().equals(""))
+                    || (JtextFiel_Nombre_2.getText().equals(""))
+                    || (jTextFiel_Apellido_1.getText().equals(""))
                     || (jTextField_Apellido_2.getText().equals(""))
-                    || (jTextField_Telefono.getText().equals("    -    "))
-                    || (jTextArea_DIrrecion.getText().equals(""))) {
+                    || (jTextField_telefono.getText().equals("    -    "))
+                    || (jTextArea_Dirrecion.getText().equals(""))) {
                 JOptionPane.showMessageDialog(null, "Tiene datos vacíos");
             } else {
-                if (cl.verificarDatos(jTextField_Id_Cliete.getText())) {
-                    JOptionPane.showMessageDialog(null, "Ya existe cliente con ese número de Cédula");
-                } else {
                     guardarCliente();
                     limpiar();
                     JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente");
                 }
-
-            }
+            
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
     }//GEN-LAST:event_Guardar_Cliente
 
     private void jButton_Buscar_Cliente(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Buscar_Cliente
-        try {
-            
-            DefaultTableModel modelo;
-            CRUD_Cliente cli = new CRUD_Cliente();
-            modelo = cli.buscarDatos(jTextField_Buscar.getText());
-            if ((jTextField_Buscar.getText().equals("Escribe la cédula, nombres o apellidos"))
-                    || (jTextField_Buscar.getText().equals(""))) {
-                JOptionPane.showMessageDialog(null, "Escriba el dato a buscar");
-                jTextField_Buscar.setText("Escribe la cédula, nombres o apellidos");
-                jTextField_Buscar.setForeground(Color.gray);
-                mostrar();
-            } else {
-                jTable_Cliente.setModel(modelo);
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+       try {
+         DefaultTableModel modelo;
+          CRUD_Cliente cli = new CRUD_Cliente();
+    modelo = cli.buscarDatos(jTextField_Buscar.getText());
+    if (jTextField_Buscar.getText().equals("Escribe el Id, nombres o apellidos")
+       || jTextField_Buscar.getText().equals("")) {
+        JOptionPane.showMessageDialog(null, "Escriba el dato a buscar");
+        jTextField_Buscar.setText("Escribe el Id, nombres o apellidos");
+        jTextField_Buscar.setForeground(Color.GRAY);
+        mostrar();
+    } else {
+        jTable_Cliente.setModel(modelo);
+    }
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(null, e);
+}
 
     }//GEN-LAST:event_jButton_Buscar_Cliente
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void jButton_Editar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Editar
+      int filaSeleccionada = jTable_Cliente.getSelectedRow();
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabla para editar");
+    } else {
+        // Obtener el ID del cliente seleccionado
+        String idCliente = jTable_Cliente.getValueAt(filaSeleccionada, 0).toString();
+
+        // Obtener los valores de la fila seleccionada en la tabla
+        String nombre1 = jTable_Cliente.getValueAt(filaSeleccionada, 1).toString();
+        String nombre2 = jTable_Cliente.getValueAt(filaSeleccionada, 2).toString();
+        String apellido1 = jTable_Cliente.getValueAt(filaSeleccionada, 3).toString();
+        String apellido2 = jTable_Cliente.getValueAt(filaSeleccionada, 4).toString();
+        String telefono = jTable_Cliente.getValueAt(filaSeleccionada, 5).toString();
+        String direccion = jTable_Cliente.getValueAt(filaSeleccionada, 6).toString();
+
+        // Establecer los valores en las cajas de texto
+        jTextField_Id_Ciente.setText(idCliente);
+        JtextFiel_Nombre_1.setText(nombre1);
+        JtextFiel_Nombre_2.setText(nombre2);
+        jTextFiel_Apellido_1.setText(apellido1);
+        jTextField_Apellido_2.setText(apellido2);
+        jTextField_telefono.setText(telefono);
+        jTextArea_Dirrecion.setText(direccion);
+
+        // Desactivar la edición del campo de texto para el ID del cliente
+        jTextField_Id_Ciente.setEditable(false);
+    }
+
+
+    }//GEN-LAST:event_jButton_Editar
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -520,23 +587,76 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void jTextField_Buscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Buscar
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_jTextField_Buscar
+
+    private void JtextFiel_nombre1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtextFiel_nombre1
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JtextFiel_nombre1
+
+    private void JtextFiel_Nombre_2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtextFiel_Nombre_2
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JtextFiel_Nombre_2
+
+    private void jTextFiel_Apellido_1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFiel_Apellido_1
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFiel_Apellido_1
+
+    private void jTextField_Id_Ciente(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Id_Ciente
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_Id_Ciente
+
+    private void jTextField_Apellido_2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Apellido_2
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_Apellido_2
+
+    private void jTextField_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_telefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_telefonoActionPerformed
+
+    private void jButton_Actualizar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Actualizar
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_Actualizar
+
+    private void jButton_Borrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Borrar
+    int fila = this.jTable_Cliente.getSelectedRow();
+    if (fila == -1) {
+        JOptionPane.showMessageDialog(null, "Seleccione el registro de la tabla");
+    } else {
+        int cod = Integer.parseInt(this.jTable_Cliente.getValueAt(fila, 0).toString());
+        try {
+            CallableStatement cbst = cn.prepareCall("{call EliminarCliente(?)}");
+            cbst.setInt(1, cod);
+            cbst.executeUpdate();
+            
+            // Eliminar la fila seleccionada de la tabla
+            DefaultTableModel modelo = (DefaultTableModel) jTable_Cliente.getModel();
+            modelo.removeRow(fila);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    
+}
+
+
+    }//GEN-LAST:event_jButton_Borrar
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField JtextFiel_Nombre_1;
+    private javax.swing.JTextField JtextFiel_Nombre_2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButton_Actualizar;
+    private javax.swing.JButton jButton_Borrar;
+    private javax.swing.JButton jButton_Buscar_Cliente;
+    private javax.swing.JButton jButton_Editar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -551,13 +671,11 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable_Cliente;
-    private javax.swing.JTextArea jTextArea_DIrrecion;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextArea jTextArea_Dirrecion;
+    private javax.swing.JTextField jTextFiel_Apellido_1;
+    private javax.swing.JTextField jTextField_Apellido_2;
+    private javax.swing.JTextField jTextField_Buscar;
+    private javax.swing.JTextField jTextField_Id_Ciente;
+    private javax.swing.JTextField jTextField_telefono;
     // End of variables declaration//GEN-END:variables
 }

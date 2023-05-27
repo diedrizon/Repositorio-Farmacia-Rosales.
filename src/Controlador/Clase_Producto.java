@@ -8,120 +8,119 @@ import java.sql.Date;
  * @author diedr
  */
 public class Clase_Producto {
-    int Id_produc;
-   String nombre;
-   String descripcion;
-   int cantidad_producto;
-   float precio_compra;
-   float precio_venta;
-   byte [] imagen_producto;
-   java.sql.Date fecha_caduci;
-   int Id_categoria;
-   int Id_proveed;
-   int Id_labor;
+    int Id_Producto;
+   String Nombre;
+   String Descripcion;
+   int Cantidad_Producto;
+   float Precio_Compra;
+   float Precio_Venta;
+   byte [] Imagen_Producto;
+   java.sql.Date Fecha_Caducidad;
+   int Id_Categoria;
+   int Id_Presentacion;
+   int Id_Laboratorio;
 
-    public Clase_Producto(int Id_produc, String nombre, String descripcion, int cantidad_producto, float precio_compra, float precio_venta, byte[] imagen_producto, Date fecha_caduci, int Id_categoria, int Id_proveed, int Id_labor) {
-        this.Id_produc = Id_produc;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.cantidad_producto = cantidad_producto;
-        this.precio_compra = precio_compra;
-        this.precio_venta = precio_venta;
-        this.imagen_producto = imagen_producto;
-        this.fecha_caduci = fecha_caduci;
-        this.Id_categoria = Id_categoria;
-        this.Id_proveed = Id_proveed;
-        this.Id_labor = Id_labor;
+    public Clase_Producto(int Id_Producto, String Nombre, String Descripcion, int Cantidad_Producto, float Precio_Compra, float Precio_Venta, byte[] Imagen_Producto, Date Fecha_Caducidad, int Id_Categoria, int Id_Presentacion, int Id_Laboratorio) {
+        this.Id_Producto = Id_Producto;
+        this.Nombre = Nombre;
+        this.Descripcion = Descripcion;
+        this.Cantidad_Producto = Cantidad_Producto;
+        this.Precio_Compra = Precio_Compra;
+        this.Precio_Venta = Precio_Venta;
+        this.Imagen_Producto = Imagen_Producto;
+        this.Fecha_Caducidad = Fecha_Caducidad;
+        this.Id_Categoria = Id_Categoria;
+        this.Id_Presentacion = Id_Presentacion;
+        this.Id_Laboratorio = Id_Laboratorio;
     }
 
-    public int getId_produc() {
-        return Id_produc;
+    public int getId_Producto() {
+        return Id_Producto;
     }
 
-    public void setId_produc(int Id_produc) {
-        this.Id_produc = Id_produc;
+    public void setId_Producto(int Id_Producto) {
+        this.Id_Producto = Id_Producto;
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return Descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
     }
 
-    public int getCantidad_producto() {
-        return cantidad_producto;
+    public int getCantidad_Producto() {
+        return Cantidad_Producto;
     }
 
-    public void setCantidad_producto(int cantidad_producto) {
-        this.cantidad_producto = cantidad_producto;
+    public void setCantidad_Producto(int Cantidad_Producto) {
+        this.Cantidad_Producto = Cantidad_Producto;
     }
 
-    public float getPrecio_compra() {
-        return precio_compra;
+    public float getPrecio_Compra() {
+        return Precio_Compra;
     }
 
-    public void setPrecio_compra(float precio_compra) {
-        this.precio_compra = precio_compra;
+    public void setPrecio_Compra(float Precio_Compra) {
+        this.Precio_Compra = Precio_Compra;
     }
 
-    public float getPrecio_venta() {
-        return precio_venta;
+    public float getPrecio_Venta() {
+        return Precio_Venta;
     }
 
-    public void setPrecio_venta(float precio_venta) {
-        this.precio_venta = precio_venta;
+    public void setPrecio_Venta(float Precio_Venta) {
+        this.Precio_Venta = Precio_Venta;
     }
 
-    public byte[] getImagen_producto() {
-        return imagen_producto;
+    public byte[] getImagen_Producto() {
+        return Imagen_Producto;
     }
 
-    public void setImagen_producto(byte[] imagen_producto) {
-        this.imagen_producto = imagen_producto;
+    public void setImagen_Producto(byte[] Imagen_Producto) {
+        this.Imagen_Producto = Imagen_Producto;
     }
 
-    public Date getFecha_caduci() {
-        return fecha_caduci;
+    public Date getFecha_Caducidad() {
+        return Fecha_Caducidad;
     }
 
-    public void setFecha_caduci(Date fecha_caduci) {
-        this.fecha_caduci = fecha_caduci;
+    public void setFecha_Caducidad(Date Fecha_Caducidad) {
+        this.Fecha_Caducidad = Fecha_Caducidad;
     }
 
-    public int getId_categoria() {
-        return Id_categoria;
+    public int getId_Categoria() {
+        return Id_Categoria;
     }
 
-    public void setId_categoria(int Id_categoria) {
-        this.Id_categoria = Id_categoria;
+    public void setId_Categoria(int Id_Categoria) {
+        this.Id_Categoria = Id_Categoria;
     }
 
-    public int getId_proveed() {
-        return Id_proveed;
+    public int getId_Presentacion() {
+        return Id_Presentacion;
     }
 
-    public void setId_proveed(int Id_proveed) {
-        this.Id_proveed = Id_proveed;
+    public void setId_Presentacion(int Id_Presentacion) {
+        this.Id_Presentacion = Id_Presentacion;
     }
 
-    public int getId_labor() {
-        return Id_labor;
+    public int getId_Laboratorio() {
+        return Id_Laboratorio;
     }
 
-    public void setId_labor(int Id_labor) {
-        this.Id_labor = Id_labor;
+    public void setId_Laboratorio(int Id_Laboratorio) {
+        this.Id_Laboratorio = Id_Laboratorio;
     }
-   
-   
+
 }
 
