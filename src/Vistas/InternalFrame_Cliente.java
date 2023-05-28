@@ -60,7 +60,6 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
     
     public void guardarCliente() {
     CRUD_Cliente cc = new CRUD_Cliente();
-    int Id_Cliente = Integer.parseInt(jTextField_Id_Ciente.getText());
     String Nombre_1 = JtextFiel_Nombre_1.getText();
     String Nombre_2 = JtextFiel_Nombre_2.getText();
     String Apellido_1 = jTextFiel_Apellido_1.getText();
@@ -68,7 +67,7 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
     String Telefono = jTextField_telefono.getText();
     String Direccion = jTextArea_Dirrecion.getText();
 
-    Clase_Cliente cl = new Clase_Cliente(Id_Cliente, Nombre_1, Nombre_2, Apellido_1, Apellido_2, Telefono, Direccion);
+    Clase_Cliente cl = new Clase_Cliente( Nombre_1, Nombre_2, Apellido_1, Apellido_2, Telefono, Direccion);
     cc.Guardar(cl);
 }
     
@@ -533,7 +532,7 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
                     || (JtextFiel_Nombre_2.getText().equals(""))
                     || (jTextFiel_Apellido_1.getText().equals(""))
                     || (jTextField_Apellido_2.getText().equals(""))
-                    || (jTextField_telefono.getText().equals("    -    "))
+                    || (jTextField_telefono.getText().equals(""))
                     || (jTextArea_Dirrecion.getText().equals(""))) {
                 JOptionPane.showMessageDialog(null, "Tiene datos vacíos");
             } else {
