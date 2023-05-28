@@ -16,8 +16,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CRUD_Cliente {
     
-    private final Conexion con = new Conexion();
-    private final Connection cn = (Connection) con.conectar();
+    public final Conexion con = new Conexion();
+    public  final Connection cn = (Connection) con.conectar();
     
     
     public DefaultTableModel mostrarDatos() {
@@ -39,7 +39,7 @@ public class CRUD_Cliente {
                 registro[3] = rs.getString("Apellido_1");
                 registro[4] = rs.getString("Apellido_2");
                 registro[5] = rs.getString("Numero_Celular");
-                registro[5] = rs.getString("Direccion");
+                registro[6] = rs.getString("Direccion");
 
                 modelo.addRow(registro);
             }
